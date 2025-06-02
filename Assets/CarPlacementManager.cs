@@ -27,7 +27,8 @@ public class CarPlacementManager : MonoBehaviour
 
                 if (spawnedCar == null)
                 {
-                    spawnedCar = Instantiate(carPrefab, hitPose.position, hitPose.rotation);
+                    spawnedCar = Instantiate(carPrefab, hitPose.position, Quaternion.LookRotation(Vector3.forward));
+
                 }
                 else
                 {
