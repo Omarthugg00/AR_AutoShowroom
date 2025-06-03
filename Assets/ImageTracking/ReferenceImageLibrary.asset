@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 848409ee8ba454f42a5ddff137688a27, type: 3}
+  m_Name: ReferenceImageLibrary
+  m_EditorClassIdentifier: 
+  m_GuidLow: 0
+  m_GuidHigh: 0
+  m_DataStore:
+    m_Storage: []
+  m_Images:
+  - m_SerializedGuid:
+      m_GuidLow: 5605396638814912547
+      m_GuidHigh: 3324266819828929185
+    m_SerializedTextureGuid:
+      m_GuidLow: 2442163874705092611
+      m_GuidHigh: 15100325003411042953
+    m_Size: {x: 0.2, y: 0.16723163}
+    m_SpecifySize: 1
+    m_Name: nissan
+    m_Texture: {fileID: 2800000, guid: db16b0034f1a21e489b243ed95218fd1, type: 3}
