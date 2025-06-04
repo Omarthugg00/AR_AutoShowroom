@@ -27,25 +27,23 @@ public class MarkerSpawner : MonoBehaviour
 
         foreach (var trackedImage in args.updated)
         {
-            if (trackedImage.trackingState == TrackingState.Tracking)
+            if (spawnedPrefabs.TryGetValue(trackedImage.referenceImage.name, out GameObject obj))
             {
-                if (spawnedPrefabs.TryGetValue(trackedImage.referenceImage.name, out GameObject obj))
+                obj.SetActive(trackedImage.trackingState == TrackingState.Tracking);
+
+                if (trackedImage.trackingState == TrackingState.Tracking)
                 {
-                    obj.SetActive(true);
                     obj.transform.position = trackedImage.transform.position;
                     obj.transform.rotation = trackedImage.transform.rotation;
                 }
-            }
-            else
-            {
-                if (spawnedPrefabs.TryGetValue(trackedImage.referenceImage.name, out GameObject obj))
-                    obj.SetActive(false);
             }
         }
     }
 
     void SpawnPrefab(ARTrackedImage trackedImage)
     {
+        if (CarSpawnState.carHasSpawned) return;
+
         string imageName = trackedImage.referenceImage.name;
 
         if (!spawnedPrefabs.ContainsKey(imageName))
@@ -57,6 +55,9 @@ public class MarkerSpawner : MonoBehaviour
                     GameObject newPrefab = Instantiate(item.prefab, trackedImage.transform.position, trackedImage.transform.rotation);
                     newPrefab.transform.parent = trackedImage.transform;
                     spawnedPrefabs[imageName] = newPrefab;
+
+                    CarSpawnState.carHasSpawned = true;
+                    Debug.Log("Car placed by marker.");
                     break;
                 }
             }

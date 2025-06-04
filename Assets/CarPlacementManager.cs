@@ -1,12 +1,12 @@
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
+using System.Collections.Generic;
 
 public class CarPlacementManager : MonoBehaviour
 {
-    public GameObject carPrefab;             // Car prefab to place
-    private GameObject spawnedCar;           // To keep track of the placed car
+    public GameObject carPrefab;
+    private GameObject spawnedCar;
     private ARRaycastManager raycastManager;
 
     void Awake()
@@ -16,6 +16,8 @@ public class CarPlacementManager : MonoBehaviour
 
     void Update()
     {
+        if (CarSpawnState.carHasSpawned) return;
+
         if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
         {
             Vector2 touchPos = Input.GetTouch(0).position;
@@ -25,15 +27,10 @@ public class CarPlacementManager : MonoBehaviour
             {
                 Pose hitPose = hits[0].pose;
 
-                if (spawnedCar == null)
-                {
-                    spawnedCar = Instantiate(carPrefab, hitPose.position, Quaternion.LookRotation(Vector3.forward));
+                spawnedCar = Instantiate(carPrefab, hitPose.position, Quaternion.LookRotation(Vector3.forward));
+                CarSpawnState.carHasSpawned = true;
 
-                }
-                else
-                {
-                    spawnedCar.transform.position = hitPose.position;
-                }
+                Debug.Log("Car placed by touch.");
             }
         }
     }
