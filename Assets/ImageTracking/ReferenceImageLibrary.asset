@@ -27,3 +27,23 @@ MonoBehaviour:
     m_SpecifySize: 1
     m_Name: nissan
     m_Texture: {fileID: 2800000, guid: db16b0034f1a21e489b243ed95218fd1, type: 3}
+  - m_SerializedGuid:
+      m_GuidLow: 4864534596638746225
+      m_GuidHigh: 4418249262166268308
+    m_SerializedTextureGuid:
+      m_GuidLow: 17258970079887670011
+      m_GuidHigh: 5720216736512367817
+    m_Size: {x: 0.2, y: 0.2}
+    m_SpecifySize: 1
+    m_Name: police
+    m_Texture: {fileID: 2800000, guid: 80ccbafb2dd8ef84c95c109ad04a624f, type: 3}
+  - m_SerializedGuid:
+      m_GuidLow: 5176341766520569823
+      m_GuidHigh: 7285212892312782734
+    m_SerializedTextureGuid:
+      m_GuidLow: 672435034689626384
+      m_GuidHigh: 14448556915649908489
+    m_Size: {x: 0.2, y: 0.11086143}
+    m_SpecifySize: 1
+    m_Name: taxi
+    m_Texture: {fileID: 2800000, guid: f133e110f8190954098f538af69583c8, type: 3}
